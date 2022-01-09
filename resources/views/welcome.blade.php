@@ -30,7 +30,7 @@
 
 <div>
     <h2 style="margin-top: 3%; text-align: center; color:#104E8B">
-        Trending Products
+        Latest Products
     </h2>
 </div>    
 
