@@ -35,7 +35,7 @@
            
             <nav class="navbar navbar-expand-lg navbar-light bg-light h-100">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/" style=" color:#104E8B; font-size: 28px; font-weight:bold">KLIMER</a>
+                    <a class="navbar-brand" href="/" style=" color:#104E8B; font-size: 28px; font-weight:bold">KLIMER</a> 
                    
                 </div>
             </nav> 
