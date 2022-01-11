@@ -17,6 +17,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Categories</th>
                 <th scope="col">Price</th>
+                <th scope="col">Published by</th>
                 <th scope="col">Discription</th>
                 <th scope="col">Action</th>
               </tr>
@@ -28,9 +29,11 @@
                     <th scope="row">{{$product->id}}</th>
                     <th><img src="/uploads/productimages/{{$product->productimg}}" width="80px" height="80px"></th>
                     <td>{{$product->title}}</td>
-                    <td>{{$product->categories}}</td>
+                    <td>{{$product->category->name}}</td>
                     <td>{{$product->price}}</td>
+                    <td>{{$product->User->name}}</td>
                     <td>{{$product->discription}}</td>
+                    {{-- {{dd($product->category->name)}} --}}
                     <td>
                         <a href="/viewProduct" style="margin-right: 6px" target="blank"><i class="fa fa-eye fa-lg" title="View" > </i></a><br>
                         <a href="/editProduct/{{$product->id}}" style="margin-right: 6px"><i class="fa fa-pencil fa-lg" title="Edit" > </i></a><br>

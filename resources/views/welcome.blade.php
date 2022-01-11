@@ -50,16 +50,20 @@
                   <div class="column" style=" ">
                   
                     <a>
-                        <img src="/uploads/productimages/{{$product->productimg}}" width="100%" height="100%"> 
+                        <img src="/uploads/productimages/{{$product->productimg}}" width="100%" height="100%" style="border-radius:5px "> 
                        
                     </a>
-                    <p class="fs-3">{{$product->title}}</p>
-                    <p>{{$product->categories}}</p>
-                    <p>{{$product->title}}</p>
+                    <p style="font-size:25px ">{{$product->title}}</p>
                     <div class="row">
+                    <p class ="col h-50" style="font-size:18px; color:#104E8B;  ">Rs.{{$product->price}}</p>
+                    <p class ="col h-50" style="font-size:18px; color:#104E8B;  ">Rs.{{$product->price}}</p>
+                    </div>
+                    {{-- <p>Category: {{$product->category->name}}</p> --}}
+                    {{-- <p>Seller: {{$product->User->name}}</p> --}}
+                    {{-- <div class="row">
                       <a class="btn btn-primary  col h-50"  >View more</a>
                       <a class="btn btn-success  col h-50"   >Add to cart</a>
-                    </div>
+                    </div> --}}
                   </div>
 
               @endforeach    

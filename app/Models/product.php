@@ -9,6 +9,15 @@ class product extends Model
 {
     use HasFactory;
 
-   
-   
+
+
+    public function category()
+    {
+        return $this->belongsTo(category::class);
+    }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

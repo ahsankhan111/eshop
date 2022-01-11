@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             // $table->string('categories');
             // $table->foreignIdFor(category::class)->constrained();
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->constrained();
             $table->string('discription');
             $table->string('productimg');
 

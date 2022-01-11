@@ -6,6 +6,7 @@ use App\Models\category;
 use App\Models\product;
 use App\Models\size;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -51,9 +52,15 @@ class ProductController extends Controller
         $res = new product;
         $size = new size;
         $category = new category;
+        $res->user_id = Auth::user()->id;
         $res->title = $request->input('title');
         $res->price = $request->input('price');
-        //$res->categories =  $request->input('categories');
+        //$res->category_id =  ;
+
+        if ($request->input('categories') == 'Men') {
+            $res->category_id = 1;
+        } else
+            $res->category_id = 2;
         $res->discription = $request->input('discription');
 
         if ($request->hasFile('productimg')) {
@@ -64,15 +71,16 @@ class ProductController extends Controller
             $res->productimg = $filename;
         }
         $res->save();
+        //storing in size table
         $size->product_id = $res->id;
         $size->small = $request->input('quantity1');
         $size->large = $request->input('quantity2');
         $size->medium = $request->input('quantity3');
         $size->xLarge = $request->input('quantity4');
-
         $size->save();
-        $category->name = $request->input('categories');
-        $category->save();
+        //storing in categories table
+        //$category->name = $request->input('categories');
+        //$category->save();
         return view('seller.allProduct')->with('allproductsArr', product::all());
     }
 
@@ -84,7 +92,7 @@ class ProductController extends Controller
      */
     public function show()
     {
-        return view('seller.allProduct')->with('allproductsArr', product::all());
+        return view('seller.allProduct')->with('allproductsArr', product::all()->where('user_id', '=', Auth::user()->id));
     }
 
     /**
